@@ -1,17 +1,32 @@
-import React,{useEffect} from 'react';
-import { SafeAreaView,Text } from 'react-native';
-import SplashScreen from 'react-native-splash-screen'
+import React, {useEffect} from 'react';
+import {SafeAreaView, View, Text} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {RouteNames} from './constant';
+import {SignIn, Register} from './screen';
 
-const App=() => {
+const Stack = createStackNavigator();
 
-  useEffect(()=>{
+const App = () => {
+  useEffect(() => {
     SplashScreen.hide();
-  },[])
+  }, []);
 
   return (
-    <SafeAreaView>
-      <Text>this is home page</Text>
-    </SafeAreaView>
+    <View style={{display: 'flex', flex: 1}}>
+      {/* <Text>aaaaaaaaa</Text> */}
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+          initialRouteName={RouteNames.SignIn}>
+          <Stack.Screen name={RouteNames.SignIn} component={SignIn} />
+          <Stack.Screen name={RouteNames.Register} component={Register} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </View>
   );
 };
 

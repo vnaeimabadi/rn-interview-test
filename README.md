@@ -11,6 +11,9 @@
 
   * npx react-native run-ios
 
+## install pakages
+  * npm install @react-native-community/masked-view @react-navigation/bottom-tabs @react-navigation/native @react-navigation/stack @reduxjs/toolkit react-native-reanimated react-native-screens react-redux react-native-safe-area-context react-native-gesture-handler
+
 
 ## after adding fonts to assets you have to do the following command:
   * npx react-native link
