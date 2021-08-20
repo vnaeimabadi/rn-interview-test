@@ -4,7 +4,7 @@ import SplashScreen from 'react-native-splash-screen';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {RouteNames} from './constant';
-import {SignIn, Register} from './screen';
+import {SignIn, Register,Home} from './screen';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +24,7 @@ const App = () => {
           initialRouteName={RouteNames.SignIn}>
           <Stack.Screen name={RouteNames.SignIn} component={SignIn} />
           <Stack.Screen name={RouteNames.Register} component={Register} />
+          <Stack.Screen name={RouteNames.Home} component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

@@ -92,8 +92,10 @@ const Register = ({navigation}) => {
             title="REGISTER"
             haveIcon={false}
             icon={icons.rightArrow}
-            onPress={() => {}}
-            contentContainerStyle={{marginTop: 46}}
+            onPress={() => {
+              navigation.replace(RouteNames.Home);
+            }}
+            contentContainerStyle={{marginTop: 46,marginBottom:20}}
           />
         </View>
       </ScrollView>

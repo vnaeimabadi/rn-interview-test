@@ -36,6 +36,7 @@ const CustomInput = ({
             borderWidth: 1,
             height: 42,
             color: COLORS.black,
+            paddingTop:10,
             ...FONTS.body3,
             paddingLeft: 51,
             ...inputContainerStyle,

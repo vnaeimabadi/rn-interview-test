@@ -16,7 +16,9 @@ export const COLORS = {
   textColorSUb:"#1B2F5D",
   borderColor:"#203159",
   circleActive:"#c7c9d3",
-  circleDeActive:"#fafafa"
+  circleDeActive:"#fafafa",
+  rectangle:"#F1F1F1",
+  rectangleDark:"#C4C4C4"
 };
 
 export const SIZES = {
