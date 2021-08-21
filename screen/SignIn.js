@@ -1,21 +1,29 @@
 import React from 'react';
 import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
-import {Header, CustomInput, CustomButton} from '../components';
+import {
+  Header,
+  CustomInput,
+  CustomButton,
+  CustomPageHeader,
+} from '../components';
 import {COLORS, FONTS, icons, images, RouteNames, SIZES} from '../constant';
 
 const SignIn = ({navigation}) => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1,backgroundColor:COLORS.white,}}>
       <Image
         style={{position: 'absolute', bottom: 0, left: 0}}
         source={images.bigLogo}
       />
+
+      {/* header */}
+      <Header />
+
       <ScrollView contentContainerStyle={{minHeight: SIZES.height - 50}}>
-        {/* header */}
-        <Header title="Sign In" subTitle="Enter login credentials" />
+        <CustomPageHeader title="Sign In" subTitle="Enter login credentials" />
 
         {/* content */}
-        <View style={{paddingLeft: 70, paddingRight: 51, marginTop: 207}}>
+        <View style={{paddingLeft: 70, paddingRight: 51, marginTop: 200}}>
           <CustomInput
             title="Username / Email address"
             placeHolder="sam.doe@gmail.com"

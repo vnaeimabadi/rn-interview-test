@@ -24,7 +24,7 @@ const CustomButton = ({
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text style={{color: COLORS.white}}>{title}</Text>
+          <Text style={{...FONTS.body5,fontWeight:"700", color: COLORS.white}}>{title}</Text>
         </TouchableOpacity>
         {haveIcon && (
           <Image

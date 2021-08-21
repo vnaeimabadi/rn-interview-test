@@ -18,8 +18,8 @@ const CustomInput = ({
     <View style={{...contentContainerStyle}}>
       <Text
         style={{
-          ...FONTS.h4,
-          fontWeight: 'bold',
+          ...FONTS.body4,
+          fontWeight: '700',
           marginBottom: 3,
           color: COLORS.textColor,
           marginLeft: 9,

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
-import {Header, CustomInput, CustomButton} from '../components';
+import {Header, CustomInput, CustomButton, CustomPageHeader} from '../components';
 import {COLORS, FONTS, icons, images, RouteNames, SIZES} from '../constant';
 
 const Register = ({navigation}) => {
@@ -29,24 +29,26 @@ const Register = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1,backgroundColor:COLORS.white,}}>
       <Image
         style={{position: 'absolute', bottom: 0, left: 0}}
         source={images.bigLogo}
       />
-      <ScrollView contentContainerStyle={{minHeight: SIZES.height - 50}}>
-        {/* header */}
-        <Header
-          title="Create Account"
-          subTitle="One step away from your desires"
+       {/* header */}
+       <Header
+          
           showBackButton={true}
           onPress={() => {
             navigation.goBack();
           }}
         />
+        
+      <ScrollView contentContainerStyle={{minHeight: SIZES.height - 50}}>
+      <CustomPageHeader title="Create Account"
+          subTitle="One step away from your desires"/>
 
         {/* content */}
-        <View style={{paddingLeft: 70, paddingRight: 51, marginTop: 207}}>
+        <View style={{paddingLeft: 70, paddingRight: 51, marginTop: 200}}>
           <CustomInput
             title="Fullname"
             placeHolder="Johnson Walker"

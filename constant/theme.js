@@ -46,17 +46,17 @@ export const SIZES = {
 };
 
 export const FONTS = {
-  largeTitle: {fontFamily: 'Roboto-Black', fontSize: SIZES.largeTitle},
-  h1: {fontFamily: 'Roboto-Bold', fontSize: SIZES.h1, lineHeight: 36},
-  h2: {fontFamily: 'Roboto-Bold', fontSize: SIZES.h2, lineHeight: 30},
-  h3: {fontFamily: 'Roboto-Bold', fontSize: SIZES.h3, lineHeight: 22},
-  h4: {fontFamily: 'Roboto-Bold', fontSize: SIZES.h4, lineHeight: 22},
-  h4: {fontFamily: 'Roboto-Bold', fontSize: SIZES.h5, lineHeight: 16},
-  body1: {fontFamily: 'Roboto-Regular', fontSize: SIZES.body1, lineHeight: 36},
-  body2: {fontFamily: 'Roboto-Regular', fontSize: SIZES.body2, lineHeight: 30},
-  body3: {fontFamily: 'Roboto-Regular', fontSize: SIZES.body3, lineHeight: 22},
-  body4: {fontFamily: 'Roboto-Regular', fontSize: SIZES.body4, lineHeight: 22},
-  body5: {fontFamily: 'Roboto-Regular', fontSize: SIZES.body5, lineHeight: 16},
+  largeTitle: {fontFamily: 'DMSans-Medium', fontSize: SIZES.largeTitle},
+  h1: {fontFamily: 'DMSans-Bold', fontSize: SIZES.h1, lineHeight: 36},
+  h2: {fontFamily: 'DMSans-Bold', fontSize: SIZES.h2, lineHeight: 30},
+  h3: {fontFamily: 'DMSans-Bold', fontSize: SIZES.h3, lineHeight: 22},
+  h4: {fontFamily: 'DMSans-Bold', fontSize: SIZES.h4, lineHeight: 22},
+  h4: {fontFamily: 'DMSans-Bold', fontSize: SIZES.h5, lineHeight: 16},
+  body1: {fontFamily: 'DMSans-Regular', fontSize: SIZES.body1, lineHeight: 36},
+  body2: {fontFamily: 'DMSans-Regular', fontSize: SIZES.body2, lineHeight: 30},
+  body3: {fontFamily: 'DMSans-Regular', fontSize: SIZES.body3, lineHeight: 22},
+  body4: {fontFamily: 'DMSans-Regular', fontSize: SIZES.body4, lineHeight: 22},
+  body5: {fontFamily: 'DMSans-Regular', fontSize: SIZES.body5, lineHeight: 16},
 };
 
 const appTheme = {COLORS, SIZES, FONTS};

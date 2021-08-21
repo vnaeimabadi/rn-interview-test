@@ -1,43 +1,42 @@
 import React, {useRef} from 'react';
-import {View, Animated} from 'react-native';
-import {COLORS, SIZES} from '../constant';
-import {CustomPlaceHolder} from '../components';
+import {View, Animated, ScrollView, FlatList} from 'react-native';
+import {COLORS} from '../constant';
+import {CustomPlaceHolder, BottomSheet} from '../components';
 
 const Home = () => {
   const scrollY = useRef(new Animated.Value(0)).current;
 
-  const renderSingleContent = () => {
+  const renderSingleContent = (firstItem, totalItems, parentIndex) => {
     return (
       <View
+        key={`parent-${parentIndex}`}
         style={{
           marginLeft: 32,
           marginRight: 30,
+          marginTop: firstItem ? 36 : 0,
           marginBottom: 22,
           flexDirection: 'row',
         }}>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: COLORS.rectangleDark,
-            height: 51,
-
-            borderRadius: 4,
-          }}
-        />
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: COLORS.rectangleDark,
-            marginLeft: 21,
-            height: 51,
-            borderRadius: 4,
-          }}
-        />
+        {[...Array(totalItems).keys()].map((item, index) => {
+          return (
+            <View
+              key={`child-${index}`}
+              style={{
+                flex: 1,
+                backgroundColor: COLORS.rectangleDark,
+                marginLeft: index === 0 ? 0 : 21,
+                height: 51,
+                borderRadius: 4,
+              }}
+            />
+          );
+        })}
       </View>
     );
   };
-  return (
-    <View style={{flex: 1}}>
+
+  const renderHeader = () => {
+    return (
       <Animated.View
         style={{
           backgroundColor: COLORS.white,
@@ -60,73 +59,19 @@ const Home = () => {
         }}>
         <CustomPlaceHolder title="PlaceHolder" />
       </Animated.View>
-      <Animated.FlatList
-        style={{backgroundColor: COLORS.rectangleDark}}
-        showsVerticalScrollIndicator={false}
-        ListHeaderComponent={
-          <>
-            <Animated.View
-              style={{
-                backgroundColor: COLORS.rectangleDark,
-                height: SIZES.height / 2,
-                overflow: 'hidden',
-              }}
-            />
-          </>
-        }
-        ListFooterComponent={() => (
-          <View
-            style={{
-              backgroundColor: COLORS.rectangleDark,
-              borderTopLeftRadius: 10,
-              borderTopRightRadius: 10,
-              height: SIZES.height * 0.82,
-              width: '100%',
-            }}>
-            <View
-              style={{
-                backgroundColor: COLORS.white,
-                borderTopLeftRadius: 20,
-                borderTopRightRadius: 20,
-                height: '100%',
-              }}>
-              <View
-                style={{
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginTop: 10,
-                }}>
-                <View
-                  style={{
-                    backgroundColor: COLORS.rectangleDark,
-                    height: 4,
-                    width: 71,
-                    borderRadius: 4,
-                  }}
-                />
-              </View>
-              <View
-                style={{
-                  backgroundColor: COLORS.rectangleDark,
-                  height: 51,
-                  marginTop: 36,
-                  marginLeft: 32,
-                  marginRight: 30,
-                  marginBottom: 22,
-                  borderRadius: 4,
-                }}
-              />
-              {renderSingleContent()}
-              {renderSingleContent()}
-            </View>
-          </View>
-        )}
-        scrollEventThrottle={16}
-        onScroll={Animated.event(
-          [{nativeEvent: {contentOffset: {y: scrollY}}}],
-          {useNativeDriver: true},
-        )}
-      />
+    );
+  };
+  return (
+    <View style={{flex: 1}}>
+      {renderHeader()}
+      <BottomSheet scrollY={scrollY}>
+        {renderSingleContent(true, 1, -1)}
+        <ScrollView nestedScrollEnabled>
+          {[...Array(3).keys()].map((item, index) => {
+            return renderSingleContent(false, 2, index);
+          })}
+        </ScrollView>
+      </BottomSheet>
     </View>
   );
 };
